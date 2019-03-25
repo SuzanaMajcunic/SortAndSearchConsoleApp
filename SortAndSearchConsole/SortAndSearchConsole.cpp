@@ -6,11 +6,14 @@
 #include <iostream>
 using namespace std;
 
-void bubbleSort(int listNumbers[], int arraySize) {
+void bubbleSort(int listNumbers[], int arraySize) 
+{
 	int i, j, temp;
-	for (i = (arraySize - 1); i >= 0; i--) {
+	for (i = (arraySize - 1); i >= 0; i--) 
+	{
 		for (j = 1; j <= i; j++) {
-			if (listNumbers[j - 1] > listNumbers[j]) {
+			if (listNumbers[j - 1] > listNumbers[j]) 
+			{
 				temp = listNumbers[j - 1];
 				listNumbers[j - 1] = listNumbers[j];
 				listNumbers[j] = temp;
@@ -19,14 +22,19 @@ void bubbleSort(int listNumbers[], int arraySize) {
 	}
 }
 
-void shellSort(int listNumbers[], int arraySize) {
+void shellSort(int listNumbers[], int arraySize) 
+{
 	int j, i, k, m, mid;
-	for (m = arraySize / 2; m > 0; m /= 2) {
-		for (j = m; j < arraySize; j++) {
-			for (i = j - m; i >= 0; i -= m) {
+	for (m = arraySize / 2; m > 0; m /= 2) 
+	{
+		for (j = m; j < arraySize; j++) 
+		{
+			for (i = j - m; i >= 0; i -= m) 
+			{
 				if (listNumbers[i + m] >= listNumbers[i])
 					break;
-				else {
+				else 
+				{
 					mid = listNumbers[i];
 					listNumbers[i] = listNumbers[i + m];
 					listNumbers[i + m] = mid;
@@ -39,9 +47,11 @@ void shellSort(int listNumbers[], int arraySize) {
 void insertionSort(int listNumbers[], int arraySize)
 {
 	int i, k, y;
-	for (k = 1; k < arraySize; k++) {
+	for (k = 1; k < arraySize; k++) 
+	{
 		y = listNumbers[k];
-		for (i = k - 1; i >= 0 && y < listNumbers[i]; i--) {
+		for (i = k - 1; i >= 0 && y < listNumbers[i]; i--) 
+		{
 			listNumbers[i + 1] = listNumbers[i];
 		}
 		listNumbers[i + 1] = y;
@@ -51,11 +61,14 @@ void insertionSort(int listNumbers[], int arraySize)
 void selectionSort(int listNumbers[], int arraySize)
 {
 	int small, pos, tmp, i, j;
-	for (i = 0; i < arraySize; i++) {
+	for (i = 0; i < arraySize; i++) 
+	{
 		small = listNumbers[i];
 		pos = i;
-		for (j = i + 1; j < arraySize; j++) {
-			if (listNumbers[j] < small) {
+		for (j = i + 1; j < arraySize; j++) 
+		{
+			if (listNumbers[j] < small)
+			{
 				small = listNumbers[j];
 				pos = j;
 			}
@@ -66,7 +79,8 @@ void selectionSort(int listNumbers[], int arraySize)
 	}
 }
 
-int binarySearch(int listNumbers[], int element, int left, int right) {
+int binarySearch(int listNumbers[], int element, int left, int right) 
+{
 	int middle;
 	while (left <= right) {
 		middle = (left + right) / 2;
@@ -88,14 +102,16 @@ int main()
 	cout << endl;
 	int *listNumbers = new int[arraySize];
 
-	for (i = 0; i < arraySize; i++) {
+	for (i = 0; i < arraySize; i++) 
+	{
 		cout << "Enter " << i + 1 << ". element of sequence: ";
 		cin >> listNumbers[i];
 	}
 	cout << endl;
 
 	cout << "Print of unsorted sequence: " << endl;
-	for (i = 0; i < arraySize; i++) {
+	for (i = 0; i < arraySize; i++) 
+	{
 		cout << listNumbers[i] << " ";
 	}
 	cout << endl << endl;
@@ -124,7 +140,8 @@ int main()
 	} while ((sortChoice < 1) || (sortChoice > 4));
 
 	cout << "Print of sorted sequence: " << endl;
-	for (i = 0; i < arraySize; i++) {
+	for (i = 0; i < arraySize; i++) 
+	{
 		cout << listNumbers[i] << " ";
 	}
 	cout << endl << endl;
@@ -134,10 +151,12 @@ int main()
 	cout << endl;
 
 	int searchResult = binarySearch(listNumbers, element, 0, arraySize - 1);
-	if (searchResult == -1) {
+	if (searchResult == -1) 
+	{
 		cout << "The function returned the result -1 which means the requested element was not found!" << endl;
 	}
-	else {
+	else 
+	{
 		cout << "The searched element is placed at position sequence[" << searchResult << "] as a " << searchResult+1 << ". element." << endl;
 	}
 }
